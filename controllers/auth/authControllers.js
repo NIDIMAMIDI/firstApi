@@ -8,7 +8,7 @@ dotenv.config({ path: './.env' });
 export const signup = async (req, res, next) => {
     try {
         const user = await User.create(req.createUser);
-        const { token, cookieOptions } = await createToken(user);
+        const { token, cookieOptions } =  createToken(user);
 
         res.cookie('jwt', token, cookieOptions);
         
